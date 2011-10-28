@@ -9,8 +9,8 @@ if ARGV.any? {|arg| arg =~ /help|--help|-h/}
   exec(command)
 end
 
-# If we are running from the root of a Rump/Puppet repo, load the bundled rump.
-finger-puppet_binstub = Pathname.new(Dir.pwd) + 'bin' + 'rump'
+# If we are running from the root of a Rump/Puppet repo, load the bundled finger-puppet.
+finger-puppet_binstub = Pathname.new(Dir.pwd) + 'bin' + 'finger-puppet'
 if finger-puppet_binstub.exist? and finger-puppet_binstub.to_s != __FILE__
   load finger-puppet_binstub
   exit
