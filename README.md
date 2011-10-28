@@ -16,6 +16,12 @@ letting you quickly test different versions of Puppet without waiting for
 packages to appear, and reducing the dependencies on a system to run Puppet
 down to just Ruby and git.
 
+This is originally forked from the the work of rump by railsmachine, my rationale for 
+renaming and re-releasing was because it had become overly burdensome to manually build 
+the gem on each system i was going to do an intitial deploy with from git, and had no 
+feedback despite asking for a new version of the gem to get pushed, original source code 
+here: https://github.com/railsmachine/rump
+
 Installing
 ----------
 
@@ -127,5 +133,6 @@ Quirks
 License
 -------
 
-Copyright Rails Machine LLC 2010-2011, released under the LGPL. See
-[LICENSE](finger-puppet/blob/master/LICENSE) for more info.
+Original Copyright Rails Machine LLC 2010-2011, released under the LGPL. 
+Copyright Somerset Technical Solutions LTD 2011 released under the LGPL. 
+See [LICENSE](finger-puppet/blob/master/LICENSE) for more info.
