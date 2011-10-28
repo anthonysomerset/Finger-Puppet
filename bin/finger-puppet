@@ -5,18 +5,18 @@ require 'pathname'
 # Show the man page
 if ARGV.any? {|arg| arg =~ /help|--help|-h/}
   root = Pathname.new(File.dirname(__FILE__)).parent.expand_path
-  command = "man #{root + 'man' + 'rump.1'}"
+  command = "man #{root + 'man' + 'finger-puppet.1'}"
   exec(command)
 end
 
-# If we are running from the root of a Rump/Puppet repo, load the bundled finger-puppet.
-finger-puppet_binstub = Pathname.new(Dir.pwd) + 'bin' + 'finger-puppet'
-if finger-puppet_binstub.exist? and finger-puppet_binstub.to_s != __FILE__
-  load finger-puppet_binstub
+# If we are running from the root of a Finger-Puppet/Puppet repo, load the bundled finger-puppet.
+fingerpuppet_binstub = Pathname.new(Dir.pwd) + 'bin' + 'finger-puppet'
+if fingerpuppet_binstub.exist? and finger-puppet_binstub.to_s != __FILE__
+  load fingerpuppet_binstub
   exit
 end
 
-# Otherwise, load rump from a gem as per usual.
+# Otherwise, load finger-puppet from a gem as per usual.
 begin
   require 'finger-puppet'
 rescue LoadError
