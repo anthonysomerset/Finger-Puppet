@@ -134,5 +134,7 @@ License
 -------
 
 Original Copyright Rails Machine LLC 2010-2011, released under the LGPL. 
+
 Copyright Somerset Technical Solutions LTD 2011 released under the LGPL. 
+
 See [LICENSE](finger-puppet/blob/master/LICENSE) for more info.
