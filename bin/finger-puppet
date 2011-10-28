@@ -10,21 +10,21 @@ if ARGV.any? {|arg| arg =~ /help|--help|-h/}
 end
 
 # If we are running from the root of a Rump/Puppet repo, load the bundled rump.
-rump_binstub = Pathname.new(Dir.pwd) + 'bin' + 'rump'
-if rump_binstub.exist? and rump_binstub.to_s != __FILE__
-  load rump_binstub
+finger-puppet_binstub = Pathname.new(Dir.pwd) + 'bin' + 'rump'
+if finger-puppet_binstub.exist? and finger-puppet_binstub.to_s != __FILE__
+  load finger-puppet_binstub
   exit
 end
 
 # Otherwise, load rump from a gem as per usual.
 begin
-  require 'rump'
+  require 'finger-puppet'
 rescue LoadError
   $: << File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib'))
-  require 'rump'
+  require 'finger-puppet'
 end
 
 command   = ARGV.first
 arguments = ARGV[1..-1]
 
-Rump.new.invoke(command, arguments)
+Finger-puppet.new.invoke(command, arguments)

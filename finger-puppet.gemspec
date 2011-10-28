@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "finger-puppet"
-  s.version     = "0.3.0"
+  s.version     = "0.3.1"
   s.authors     = ["Anthony Somerset"]
   s.email       = ["anthony@somersettechsolutions.co.uk"]
   s.homepage    = "http://github.com/anthonysomerset/finger-puppet"
