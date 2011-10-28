@@ -1,4 +1,4 @@
 source "http://rubygems.org"
 
-# Specify your gem's dependencies in rump.gemspec
+# Specify your gem's dependencies in finger-puppet.gemspec
 gemspec

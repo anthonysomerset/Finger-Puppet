@@ -42,7 +42,7 @@ class Thor
 end
 
 
-class Rump < Thor
+class finger-puppet < Thor
   include Logging
 
   def initialize
@@ -78,7 +78,7 @@ class Rump < Thor
       args << "bundle exec puppet"
       info "Using frozen Puppet from #{@root.join('vendor', 'puppet')}."
     else
-      abort_unless_puppet_installed(:message => "Please either install it on your system or freeze it with 'rump freeze'")
+      abort_unless_puppet_installed(:message => "Please either install it on your system or freeze it with 'finger-puppet freeze'")
       args << "puppet"
     end
 
@@ -140,7 +140,7 @@ class Rump < Thor
       end
     end
 
-    info "Your new Rump project has been initialised in #{repo_path}"
+    info "Your new finger-puppet project has been initialised in #{repo_path}"
   end
 
   desc "whoami [rfc2822-address]", "set the current commit author"

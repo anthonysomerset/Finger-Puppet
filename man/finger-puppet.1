@@ -1,44 +1,44 @@
 .\" generated with Ronn/v0.7.3
 .\" http://github.com/rtomayko/ronn/tree/0.7.3
 .
-.TH "RUMP" "1" "February 2011" "" ""
+.TH "finger-puppet" "1" "February 2011" "" ""
 .
 .SH "NAME"
-rump \- Do Puppet runs locally from a Git checkout
+finger-puppet \- Do Puppet runs locally from a Git checkout
 .
 .SH "SYNOPSIS"
 .
 .IP "\(bu" 4
-\fBrump\fR go [\fIpuppet\-options\fR]
+\fBfinger-puppet\fR go [\fIpuppet\-options\fR]
 .
 .IP "\(bu" 4
-\fBrump\fR clone \fIrepository\fR [directory]
+\fBfinger-puppet\fR clone \fIrepository\fR [directory]
 .
 .IP "\(bu" 4
-\fBrump\fR freeze [\fIproject\fR \fIrepository\fR \-\-release=\fIrelease\fR]
+\fBfinger-puppet\fR freeze [\fIproject\fR \fIrepository\fR \-\-release=\fIrelease\fR]
 .
 .IP "\(bu" 4
-\fBrump\fR whoami [rfc2822\-address]
+\fBfinger-puppet\fR whoami [rfc2822\-address]
 .
 .IP "\(bu" 4
-\fBrump\fR init \fIproject\fR
+\fBfinger-puppet\fR init \fIproject\fR
 .
 .IP "\(bu" 4
-\fBrump\fR scaffold \fIproject\fR
+\fBfinger-puppet\fR scaffold \fIproject\fR
 .
 .IP "" 0
 .
 .SH "DESCRIPTION"
-\fBRump\fR helps you run Puppet locally against a Git checkout\.
+\fBfinger-puppet\fR helps you run Puppet locally against a Git checkout\.
 .
 .P
-Rump supports a Puppet workflow where you quickly + iteratively develop your Puppet manifests on a single machine, then push your changes up to a repository to deploy to the rest of your infrastructure\.
+finger-puppet supports a Puppet workflow where you quickly + iteratively develop your Puppet manifests on a single machine, then push your changes up to a repository to deploy to the rest of your infrastructure\.
 .
 .P
-This workflow also complements a Capistrano or MCollective\-style deployment, where you remotely instruct Rump to check out a copy of the latest manifests and run them\.
+This workflow also complements a Capistrano or MCollective\-style deployment, where you remotely instruct finger-puppet to check out a copy of the latest manifests and run them\.
 .
 .P
-Rump also has the ability to freeze Puppet in to the manifests repository, letting you quickly test different versions of Puppet without waiting for packages to appear, and reducing the dependencies on a system to run Puppet down to just Ruby and git\.
+finger-puppet also has the ability to freeze Puppet in to the manifests repository, letting you quickly test different versions of Puppet without waiting for packages to appear, and reducing the dependencies on a system to run Puppet down to just Ruby and git\.
 .
 .SH "COMMANDS"
 .
@@ -66,7 +66,7 @@ If \fB\-\-release\fR is specified, \fBfreeze\fR will create and switch to a bran
 Once the repository is frozen in, switch between tagged releases by \fBcd\fRing to the repository under vendor and running \fBgit checkout <tag>\fR\.
 .
 .IP
-Any repository frozen under \fBvendor/\fR will be added to the Puppet load path when using \fBrump go\fR\.
+Any repository frozen under \fBvendor/\fR will be added to the Puppet load path when using \fBfinger-puppet go\fR\.
 .
 .TP
 \fBgo\fR
@@ -85,7 +85,7 @@ Initialise a repo of scaffolded Puppet manifests\. Generates scaffolding for a r
 .
 .TP
 \fBscaffold\fR
-Generate scaffolding for a repository of Puppet manifests, primed for Rump\.
+Generate scaffolding for a repository of Puppet manifests, primed for finger-puppet\.
 .
 .IP
 Called by \fBinit\fR\. You should never have to call this manually\.
@@ -133,13 +133,13 @@ Puppet\'s fileserver (\fBsource => "puppet:///\.\.\."\fR on File resources) does
 .IP "" 0
 .
 .SH "EXAMPLES"
-Initialise a Rump\-ready Puppet repository:
+Initialise a finger-puppet\-ready Puppet repository:
 .
 .IP "" 4
 .
 .nf
 
-$ rump init barfoo
+$ finger-puppet init barfoo
 Initialized empty Git repository in barfoo/\.git/
 .
 .fi
@@ -153,7 +153,7 @@ Clone a git repository of Puppet manifests:
 .
 .nf
 
-$ rump clone git@github\.com:exampledotorg/manifests\.git
+$ finger-puppet clone git@github\.com:exampledotorg/manifests\.git
 .
 .fi
 .
@@ -166,20 +166,20 @@ Clone a git repository of Puppet manifests into a specific directory:
 .
 .nf
 
-$ rump clone git@github\.com:exampledotorg/manifests\.git another_clone
+$ finger-puppet clone git@github\.com:exampledotorg/manifests\.git another_clone
 .
 .fi
 .
 .IP "" 0
 .
 .P
-Graft a Rump scaffold onto an existing repository of manifests:
+Graft a finger-puppet scaffold onto an existing repository of manifests:
 .
 .IP "" 4
 .
 .nf
 
-$ rump scaffold another_clone
+$ finger-puppet scaffold another_clone
 .
 .fi
 .
@@ -192,7 +192,7 @@ Freeze Puppet and Facter:
 .
 .nf
 
-$ rump freeze
+$ finger-puppet freeze
 Cloning into vendor/puppet\.\.\.
 remote: Counting objects: 72007, done\.
 remote: Compressing objects: 100% (22120/22120), done\.
@@ -218,7 +218,7 @@ Freeze some other repository:
 .
 .nf
 
-$ rump freeze moonshine https://github\.com/railsmachine/moonshine\.git
+$ finger-puppet freeze moonshine https://github\.com/railsmachine/moonshine\.git
 Cloning into vendor/moonshine\.\.\.
 remote: Counting objects: 4122, done\.
 remote: Compressing objects: 100% (1976/1976), done\.
@@ -238,7 +238,7 @@ Freeze Puppet at a particular version:
 .
 .nf
 
-$ rump freeze puppet git://github\.com/puppetlabs/puppet\.git \-\-release=2\.6\.2
+$ finger-puppet freeze puppet git://github\.com/puppetlabs/puppet\.git \-\-release=2\.6\.2
 Cloning into /Users/auxesis/foobar/vendor/puppet\.\.\.
 remote: Counting objects: 72007, done\.
 remote: Compressing objects: 100% (22120/22120), done\.
@@ -259,7 +259,7 @@ Do a Puppet run:
 .
 .nf
 
-$ rump go
+$ finger-puppet go
 You should probably be root when running this! Proceeding anyway\.\.\.
 Using frozen Puppet from vendor/puppet\.
 notice: Finished catalog run in 0\.01 seconds
@@ -275,7 +275,7 @@ Do a Puppet run, and pass in arguments to Puppet:
 .
 .nf
 
-$ rump go \-\-noop \-\-debug
+$ finger-puppet go \-\-noop \-\-debug
 You should probably be root when running this! Proceeding anyway\.\.\.
 Using frozen Puppet from vendor/puppet\.
 ruby \-I vendor/facter/lib \-I vendor/puppet/lib vendor/puppet/bin/puppet
@@ -298,7 +298,7 @@ Find out who the currently configured git user is:
 .
 .nf
 
-$ rump whoami
+$ finger-puppet whoami
 Jane Doe <jane@example\.org>
 .
 .fi
@@ -312,7 +312,7 @@ Set the git user:
 .
 .nf
 
-$ rump whoami \'John Doe <john@example\.org>\'
+$ finger-puppet whoami \'John Doe <john@example\.org>\'
 .
 .fi
 .
@@ -322,7 +322,7 @@ $ rump whoami \'John Doe <john@example\.org>\'
 Lindsay Holmwood \fIlindsay@holmwood\.id\.au\fR
 .
 .SH "COPYRIGHT"
-Rump is copyright Rails Machine LLC\.
+finger-puppet is copyright Rails Machine LLC\.
 .
 .SH "SEE ALSO"
 puppet(8)

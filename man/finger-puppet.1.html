@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv='content-type' value='text/html;charset=utf8'>
   <meta name='generator' value='Ronn/v0.7.3 (http://github.com/rtomayko/ronn/tree/0.7.3)'>
-  <title>rump(1) - Rump</title>
+  <title>finger-puppet(1) - finger-puppet</title>
   <style type='text/css' media='all'>
   /* style: man */
   body#manpage {margin:0}
@@ -67,41 +67,41 @@
   </div>
 
   <ol class='man-decor man-head man head'>
-    <li class='tl'>rump(1)</li>
+    <li class='tl'>finger-puppet(1)</li>
     <li class='tc'></li>
-    <li class='tr'>rump(1)</li>
+    <li class='tr'>finger-puppet(1)</li>
   </ol>
 
-  <h1>Rump</h1>
+  <h1>finger-puppet</h1>
 <h2 id="NAME">NAME</h2>
 
-<p>  rump - Do Puppet runs locally from a Git checkout</p>
+<p>  finger-puppet - Do Puppet runs locally from a Git checkout</p>
 
 <h2 id="SYNOPSIS">SYNOPSIS</h2>
 
 <ul>
-<li><code>rump</code> go [<var>puppet-options</var>]</li>
-<li><code>rump</code> clone <var>repository</var> [directory]</li>
-<li><code>rump</code> freeze [<var>project</var> <var>repository</var> --release=<var>release</var>]</li>
-<li><code>rump</code> whoami [rfc2822-address]</li>
-<li><code>rump</code> init <var>project</var></li>
-<li><code>rump</code> scaffold <var>project</var></li>
+<li><code>finger-puppet</code> go [<var>puppet-options</var>]</li>
+<li><code>finger-puppet</code> clone <var>repository</var> [directory]</li>
+<li><code>finger-puppet</code> freeze [<var>project</var> <var>repository</var> --release=<var>release</var>]</li>
+<li><code>finger-puppet</code> whoami [rfc2822-address]</li>
+<li><code>finger-puppet</code> init <var>project</var></li>
+<li><code>finger-puppet</code> scaffold <var>project</var></li>
 </ul>
 
 
 <h2 id="DESCRIPTION">DESCRIPTION</h2>
 
-<p><strong>Rump</strong> helps you run Puppet locally against a Git checkout.</p>
+<p><strong>finger-puppet</strong> helps you run Puppet locally against a Git checkout.</p>
 
-<p>Rump supports a Puppet workflow where you quickly + iteratively develop your
+<p>finger-puppet supports a Puppet workflow where you quickly + iteratively develop your
 Puppet manifests on a single machine, then push your changes up to a repository
 to deploy to the rest of your infrastructure.</p>
 
 <p>This workflow also complements a Capistrano or MCollective-style deployment,
-where you remotely instruct Rump to check out a copy of the latest manifests
+where you remotely instruct finger-puppet to check out a copy of the latest manifests
 and run them.</p>
 
-<p>Rump also has the ability to freeze Puppet in to the manifests repository,
+<p>finger-puppet also has the ability to freeze Puppet in to the manifests repository,
 letting you quickly test different versions of Puppet without waiting for
 packages to appear, and reducing the dependencies on a system to run Puppet
 down to just Ruby and git.</p>
@@ -132,7 +132,7 @@ version of Puppet.</p>
 to the repository under vendor and running <code>git checkout &lt;tag></code>.</p>
 
 <p>Any repository frozen under <code>vendor/</code> will be added to the Puppet load path
-when using <code>rump go</code>.</p></dd>
+when using <code>finger-puppet go</code>.</p></dd>
 <dt class="flush"><code>go</code></dt><dd><p>Do a Puppet run. Assumes the current directory is a repository of Puppet
 manifests.</p>
 
@@ -141,7 +141,7 @@ line (e.g. <code>--debug</code>, <code>--verbose</code>, <code>--tags foobar</co
 <dt class="flush"><code>help</code></dt><dd><p>Display the man page.</p></dd>
 <dt class="flush"><code>init</code></dt><dd><p>Initialise a repo of scaffolded Puppet manifests. Generates scaffolding for
 a repository of Puppet manifests, and <code>git init</code>s the repository.</p></dd>
-<dt><code>scaffold</code></dt><dd><p>Generate scaffolding for a repository of Puppet manifests, primed for Rump.</p>
+<dt><code>scaffold</code></dt><dd><p>Generate scaffolding for a repository of Puppet manifests, primed for finger-puppet.</p>
 
 <p>Called by <code>init</code>. You should never have to call this manually.</p></dd>
 <dt class="flush"><code>whoami</code></dt><dd><p>Sets <code>user.name</code> and <code>user.email</code> using <code>git config</code>. Useful if you have
@@ -186,30 +186,30 @@ need to be templates.</li>
 
 <h2 id="EXAMPLES">EXAMPLES</h2>
 
-<p>Initialise a Rump-ready Puppet repository:</p>
+<p>Initialise a finger-puppet-ready Puppet repository:</p>
 
-<pre><code>$ rump init barfoo
+<pre><code>$ finger-puppet init barfoo
 Initialized empty Git repository in barfoo/.git/
 </code></pre>
 
 <p>Clone a git repository of Puppet manifests:</p>
 
-<pre><code>$ rump clone git@github.com:exampledotorg/manifests.git
+<pre><code>$ finger-puppet clone git@github.com:exampledotorg/manifests.git
 </code></pre>
 
 <p>Clone a git repository of Puppet manifests into a specific directory:</p>
 
-<pre><code>$ rump clone git@github.com:exampledotorg/manifests.git another_clone
+<pre><code>$ finger-puppet clone git@github.com:exampledotorg/manifests.git another_clone
 </code></pre>
 
-<p>Graft a Rump scaffold onto an existing repository of manifests:</p>
+<p>Graft a finger-puppet scaffold onto an existing repository of manifests:</p>
 
-<pre><code>$ rump scaffold another_clone
+<pre><code>$ finger-puppet scaffold another_clone
 </code></pre>
 
 <p>Freeze Puppet and Facter:</p>
 
-<pre><code>$ rump freeze
+<pre><code>$ finger-puppet freeze
 Cloning into vendor/puppet...
 remote: Counting objects: 72007, done.
 remote: Compressing objects: 100% (22120/22120), done.
@@ -227,7 +227,7 @@ Freezing complete.
 
 <p>Freeze some other repository:</p>
 
-<pre><code>$ rump freeze moonshine https://github.com/railsmachine/moonshine.git
+<pre><code>$ finger-puppet freeze moonshine https://github.com/railsmachine/moonshine.git
 Cloning into vendor/moonshine...
 remote: Counting objects: 4122, done.
 remote: Compressing objects: 100% (1976/1976), done.
@@ -239,7 +239,7 @@ Freezing complete.
 
 <p>Freeze Puppet at a particular version:</p>
 
-<pre><code>$ rump freeze puppet git://github.com/puppetlabs/puppet.git --release=2.6.2
+<pre><code>$ finger-puppet freeze puppet git://github.com/puppetlabs/puppet.git --release=2.6.2
 Cloning into /Users/auxesis/foobar/vendor/puppet...
 remote: Counting objects: 72007, done.
 remote: Compressing objects: 100% (22120/22120), done.
@@ -252,7 +252,7 @@ Freezing complete.
 
 <p>Do a Puppet run:</p>
 
-<pre><code>$ rump go
+<pre><code>$ finger-puppet go
 You should probably be root when running this! Proceeding anyway...
 Using frozen Puppet from vendor/puppet.
 notice: Finished catalog run in 0.01 seconds
@@ -260,7 +260,7 @@ notice: Finished catalog run in 0.01 seconds
 
 <p>Do a Puppet run, and pass in arguments to Puppet:</p>
 
-<pre><code>$ rump go --noop --debug
+<pre><code>$ finger-puppet go --noop --debug
 You should probably be root when running this! Proceeding anyway...
 Using frozen Puppet from vendor/puppet.
 ruby -I vendor/facter/lib -I vendor/puppet/lib vendor/puppet/bin/puppet
@@ -275,13 +275,13 @@ debug: Failed to load library 'shadow' for feature 'libshadow'
 
 <p>Find out who the currently configured git user is:</p>
 
-<pre><code>$ rump whoami
+<pre><code>$ finger-puppet whoami
 Jane Doe &lt;jane@example.org&gt;
 </code></pre>
 
 <p>Set the git user:</p>
 
-<pre><code>$ rump whoami 'John Doe &lt;john@example.org&gt;'
+<pre><code>$ finger-puppet whoami 'John Doe &lt;john@example.org&gt;'
 </code></pre>
 
 <h2 id="AUTHOR">AUTHOR</h2>
@@ -290,7 +290,7 @@ Jane Doe &lt;jane@example.org&gt;
 
 <h2 id="COPYRIGHT">COPYRIGHT</h2>
 
-<p>Rump is copyright Rails Machine LLC.</p>
+<p>finger-puppet is copyright Rails Machine LLC.</p>
 
 <h2 id="SEE-ALSO">SEE ALSO</h2>
 
@@ -300,7 +300,7 @@ Jane Doe &lt;jane@example.org&gt;
   <ol class='man-decor man-foot man foot'>
     <li class='tl'></li>
     <li class='tc'>February 2011</li>
-    <li class='tr'>rump(1)</li>
+    <li class='tr'>finger-puppet(1)</li>
   </ol>
 
   </div>

@@ -1,17 +1,17 @@
-Rump
+finger-puppet
 ====
 
-Rump helps you run Puppet locally against a Git checkout.
+finger-puppet helps you run Puppet locally against a Git checkout.
 
-Rump encourages a Puppet workflow where you quickly + iteratively develop your
+finger-puppet encourages a Puppet workflow where you quickly + iteratively develop your
 Puppet manifests on a single machine, then push your changes up to a repository
 to deploy to the rest of your infrastructure.
 
 This workflow also complements a Capistrano or MCollective-style deployment,
-where you remotely instruct Rump to check out a copy of the latest manifests
+where you remotely instruct finger-puppet to check out a copy of the latest manifests
 and run them.
 
-Rump also has the ability to freeze Puppet in to the manifests repository,
+finger-puppet also has the ability to freeze Puppet in to the manifests repository,
 letting you quickly test different versions of Puppet without waiting for
 packages to appear, and reducing the dependencies on a system to run Puppet
 down to just Ruby and git.
@@ -19,39 +19,39 @@ down to just Ruby and git.
 Installing
 ----------
 
-    $ gem install rump
+    $ gem install finger-puppet
 
-Using Rump
+Using finger-puppet
 ----------
 
-Make sure you check out the [man pages](rump/blob/master/man/rump.1.ronn).
+Make sure you check out the [man pages](finger-puppet/blob/master/man/finger-puppet.1.ronn).
 
 Check out your repository of Puppet manifests:
 
-    $ rump clone git@github.com:me_at_example_dot_org/puppet.git
+    $ finger-puppet clone git@github.com:me_at_example_dot_org/puppet.git
 
 Now `cd` into the directory, and do a Puppet run:
 
-    $ sudo rump go
+    $ sudo finger-puppet go
 
-When you make changes, run Puppet through Rump:
+When you make changes, run Puppet through finger-puppet:
 
-    $ sudo rump go
+    $ sudo finger-puppet go
 
 You can append options you'd normally pass to the `puppet` command at the end
-of `rump go`:
+of `finger-puppet go`:
 
-    $ sudo rump go --verbose --debug --noop
+    $ sudo finger-puppet go --verbose --debug --noop
 
-There's nothing stopping you from running Rump against different checkouts/branches
+There's nothing stopping you from running finger-puppet against different checkouts/branches
 of manifests. This is especially powerful when developing locally with the following
 workflow:
 
-   1. `rump clone git@github.com:me_at_example_dot_org/puppet.git`
-   2. `rump go`
+   1. `finger-puppet clone git@github.com:me_at_example_dot_org/puppet.git`
+   2. `finger-puppet go`
    3. `cd puppet && git checkout -b new_feature`
-   4. Make your changes &amp;&amp; `rump go --noop` to see what will change.
-   5. Apply the changes with `rump go`
+   4. Make your changes &amp;&amp; `finger-puppet go --noop` to see what will change.
+   5. Apply the changes with `finger-puppet go`
    6. *Iterate until everything's working*
    7. `git checkout master && git merge new_feature`
    8. `git push`
@@ -60,7 +60,7 @@ Freezing Puppet
 ---------------
 
 Alternatively, if you want to live on the bleeding edge and eschew your
-distribution's packages, you can run Rump entirely from RubyGems or Git. This
+distribution's packages, you can run finger-puppet entirely from RubyGems or Git. This
 gives you a whole bunch of advantages:
 
  * You only need Ruby installed on your system to run Puppet
@@ -71,11 +71,11 @@ gives you a whole bunch of advantages:
 
 You can freeze Puppet and it's dependencies very easily:
 
-    $ rump freeze
+    $ finger-puppet freeze
 
 This will freeze Puppet + Facter under `vendor/`, using Bundler.
 
-When you run `rump go`, Rump checks whether you have frozen Puppet + Facter, and
+When you run `finger-puppet go`, finger-puppet checks whether you have frozen Puppet + Facter, and
 runs the frozen Puppet if available.
 
 You can manage the versions of Puppet you want frozen using the `Gemfile` at
@@ -98,15 +98,15 @@ gem "facter", "1.5.8", :git => "git://github.com/puppetlabs/facter.git", :tag =>
 ```
 
 Any dependency you bundle will automatically be added to the load path when you
-run `rump go`.
+run `finger-puppet go`.
 
-Developing + Testing Rump
+Developing + Testing finger-puppet
 -------------------------
 
 Check out the repository, and run `bundle install` to suck down all the
 required development dependencies.
 
-There's a suite of Cucumber tests to fully exercise Rump in `features/`:
+There's a suite of Cucumber tests to fully exercise finger-puppet in `features/`:
 
     $ cucumber features/
 
@@ -128,4 +128,4 @@ License
 -------
 
 Copyright Rails Machine LLC 2010-2011, released under the LGPL. See
-[LICENSE](rump/blob/master/LICENSE) for more info.
+[LICENSE](finger-puppet/blob/master/LICENSE) for more info.

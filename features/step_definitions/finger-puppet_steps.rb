@@ -21,9 +21,9 @@ Given /^I have an empty git repository named "([^\"]*)"$/ do |repo_name|
 end
 
 When /^I run "([^\"]*)"$/ do |cmd|
-  if cmd.split(' ').first == "rump"
+  if cmd.split(' ').first == "finger-puppet"
     command = %w(ruby -rubygems)
-    command << ROOT.join('bin', 'rump')
+    command << ROOT.join('bin', 'finger-puppet')
     command << cmd.split[1..-1].join(' ')
     command = command.join(' ')
   else
@@ -48,9 +48,9 @@ Then /^running "([^\"]*)" should succeed$/ do |command|
 end
 
 Then /^running "([^\"]*)" should output "([^\"]*)"$/ do |cmd, string|
-  if cmd.split(' ').first == "rump"
+  if cmd.split(' ').first == "finger-puppet"
     command = %w(ruby -rubygems)
-    command << ROOT.join('bin', 'rump')
+    command << ROOT.join('bin', 'finger-puppet')
     command << cmd.split[1..-1].join(' ')
     command = command.join(' ')
   else

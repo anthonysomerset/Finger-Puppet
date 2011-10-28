@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rump (0.3)
+    finger-puppet (0.3)
       bundler
       thor
 
@@ -31,4 +31,4 @@ PLATFORMS
 DEPENDENCIES
   cucumber
   puppet
-  rump!
+  finger-puppet!

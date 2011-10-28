@@ -2,15 +2,15 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = "rump"
+  s.name        = "finger-puppet"
   s.version     = "0.3.0"
   s.authors     = ["Lindsay Holmwood"]
   s.email       = ["ops@railsmachine.com"]
-  s.homepage    = "http://github.com/railsmachine/rump"
-  s.summary     = %q{Rump helps you run Puppet locally against a Git checkout.}
-  s.description = %q{Rump helps you run Puppet locally against a Git checkout. This is great for locally iterating your Puppet manifests very quickly, then pushng them up to a repository somewhere else to share the changes.}
+  s.homepage    = "http://github.com/railsmachine/finger-puppet"
+  s.summary     = %q{finger-puppet helps you run Puppet locally against a Git checkout.}
+  s.description = %q{finger-puppet helps you run Puppet locally against a Git checkout. This is great for locally iterating your Puppet manifests very quickly, then pushng them up to a repository somewhere else to share the changes.}
 
-  s.rubyforge_project = "rump"
+  s.rubyforge_project = "finger-puppet"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

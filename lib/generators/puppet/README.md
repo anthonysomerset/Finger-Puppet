@@ -6,22 +6,22 @@ manifests/ <= Puppet nodes
 vendor/ <= frozen Puppet + Facter
 
 
-Running Puppet with Rump
+Running Puppet with finger-puppet
 ------------------------
 
 From within this directory, run:
 
-    rump go
+    finger-puppet go
 
 You can pass options to Puppet after the 'go':
 
-    rump go --debug --test
+    finger-puppet go --debug --test
 
 Freezing Puppet
 ---------------
 
 You can freeze Puppet:
 
-    rump freeze
+    finger-puppet freeze
 
-Now Rump will use the frozen Puppet when you run 'rump go'.
+Now finger-puppet will use the frozen Puppet when you run 'finger-puppet go'.
