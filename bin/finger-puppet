@@ -11,7 +11,7 @@ end
 
 # If we are running from the root of a Finger-Puppet/Puppet repo, load the bundled finger-puppet.
 fingerpuppet_binstub = Pathname.new(Dir.pwd) + 'bin' + 'finger-puppet'
-if fingerpuppet_binstub.exist? and finger-puppet_binstub.to_s != __FILE__
+if fingerpuppet_binstub.exist? and fingerpuppet_binstub.to_s != __FILE__
   load fingerpuppet_binstub
   exit
 end
