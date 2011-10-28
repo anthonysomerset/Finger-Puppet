@@ -27,4 +27,4 @@ end
 command   = ARGV.first
 arguments = ARGV[1..-1]
 
-Finger-puppet.new.invoke(command, arguments)
+Fingerpuppet.new.invoke(command, arguments)

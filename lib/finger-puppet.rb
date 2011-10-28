@@ -42,7 +42,7 @@ class Thor
 end
 
 
-class fingerpuppet < Thor
+class Fingerpuppet < Thor
   include Logging
 
   def initialize
