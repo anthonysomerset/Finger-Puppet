@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'thor', '0.13.4'
   s.add_dependency 'bundler'
+  s.add_dependency 'rake'
+
 
   s.add_development_dependency 'puppet'
   s.add_development_dependency 'cucumber'
